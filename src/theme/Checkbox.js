@@ -4,10 +4,10 @@ import palette from './palette.js';
 
 const Checkbox = ({ label, ...props }) => {
   return (
-    <Label>
+    <Label disabled={props.disabled}>
       <input type="checkbox" {...props}></input>
       <div className="checkbox"></div>
-      <div>{label}</div>
+      {label}
     </Label>
   );
 };
@@ -17,6 +17,10 @@ const Label = styled.label`
   align-content: center;
   margin-bottom: 10px;
   font-size: 13px;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
 
   input[type='checkbox'] {
     position: absolute;
@@ -41,6 +45,7 @@ const Label = styled.label`
 
     &[disabled] ~ div.checkbox {
       background-color: ${palette.lightInfo};
+      border-color: ${palette.lightInfo};
 
       &::after {
         position: absolute;
@@ -55,18 +60,15 @@ const Label = styled.label`
         transform: translate(-50%, -50%) rotate(45deg);
       }
     }
-
-    &[disabled] ~ * {
-      cursor: not-allowed;
-    }
   }
   div.checkbox {
-    width: 16px;
-    height: 16px;
-    border: 1px solid #ddd;
+    width: 15px;
+    height: 15px;
+    border: 1px solid ${palette.primary};
     border-radius: 2px;
     margin-right: 5px;
     position: relative;
+    box-sizing: border-box;
   }
 `;
 
