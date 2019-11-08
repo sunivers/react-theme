@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, Input, Checkbox } from './theme';
+import { Button, Input, Checkbox, Radio } from './theme';
 
 function App() {
   const buttonPrefix = () => (
@@ -59,9 +59,14 @@ function App() {
       </Section>
       <Section>
         <Title>Radio</Title>
-      </Section>
-      <Section>
-        <Title>Select</Title>
+        <Radio></Radio>
+        <br />
+        <br />
+        <Radio name="radio" label="Label1"></Radio>
+        <Radio name="radio" label="Label2"></Radio>
+        <br />
+        <br />
+        <Radio disabled label="Disabled"></Radio>
       </Section>
     </div>
   );
